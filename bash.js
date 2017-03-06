@@ -1,7 +1,7 @@
 // console.log(process)
 // console.log('process keys')
 // console.log(Object.keys(process))
-
+// console.log(Object.keys(process))
 var cmd = require('./commands.js')
 //Output a prompt
 
@@ -24,7 +24,11 @@ process.stdin.on('data', function (data) {
   } else if (command === 'head') {
     cmd.head(input);
   } else if (command === 'tail') {
-    cmd.tail(input)
+    cmd.tail(input);
+  } else if (command === 'wc') {
+    cmd.wc(input);
+  }else if (command === 'uniq') {
+    cmd.uniq(input);
   }
 process.stdout.write('prompt > ');
 });
