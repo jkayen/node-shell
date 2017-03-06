@@ -23,8 +23,8 @@ process.stdin.on('data', function (data) {
     cmd.cat(input);
   } else if (command === 'head') {
     cmd.head(input);
+  } else if (command === 'tail') {
+    cmd.tail(input)
   }
-
+process.stdout.write('prompt > ');
 });
-
-

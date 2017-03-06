@@ -26,7 +26,7 @@ cmd.echo = function(file) {
     console.log(output);
   } else {
     console.log(file);
-  } 
+  }
 }
 
 cmd.cat = function(file) {
@@ -49,5 +49,14 @@ cmd.head = function(file) {
 }
 
 cmd.tail = function(file) {
-
+  fs.readFile(file, 'utf8', (err, data) => {
+    if(err) throw console.error();
+    var end = data.lastIndexOf('\n')
+    var secondFromEnd = data.lastIndexOf('\n', end-1)
+    var thirdFromEnd = data.lastIndexOf('\n', secondFromEnd-1)
+    var fourthFromEnd = data.lastIndexOf('\n', thirdFromEnd-1)
+    var FifthFromEnd = data.lastIndexOf('\n', fourthFromEnd-1)
+    
+    console.log(data.slice(FifthFromEnd))
+  });
 }
